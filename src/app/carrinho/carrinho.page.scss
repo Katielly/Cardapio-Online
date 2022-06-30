@@ -1,0 +1,64 @@
+.div-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #850a0a;
+}
+h3{
+    color: white;
+    font-size: 28px;
+    // font-family: 'Great Vibes', cursive;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+ion-card-subtitle{
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+ion-card-title{
+    font-size: 25px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+}
+img{
+    width: 80px;
+    height: 80px;
+}
+ion-card-header{
+    width: 100%;
+}
+ion-card-title{
+    margin-bottom: 5px;    
+}
+.div-prod-detalhe{
+    display: flex;
+}
+.div-prod-detalhe ion-card-subtitle{
+    margin-right: 10px;
+}
+
+.div-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background-color: #850a0a;
+    width: 97%;
+    border-radius: 6px;
+    height: 36px;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+
+    // letter-spacing: 0.06em;
+}

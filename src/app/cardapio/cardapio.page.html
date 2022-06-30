@@ -1,0 +1,33 @@
+<div iv class="container">
+  <div class="div-log">
+    <img class="img-log"
+      src={{DadoLoja.loja.logo}}>
+  </div>
+  <div class="div-titulo">
+    <h3>{{DadoLoja.loja.nome}}</h3>
+  </div>
+</div>
+
+<nav>
+  <ul>
+    <div (click)="selectCat(categoria)" *ngFor="let categoria of DadoLoja.categorias">
+      <li> {{categoria.nome}} </li>
+    </div>
+  </ul>
+</nav>
+
+
+<ion-content>
+
+  <ion-card class="card-produto-cat" (click)="selecionarProd(prod)" *ngFor="let prod of produtosCategoria">
+    <ion-card-header>
+      <div>
+        <img
+          src={{prod.img}}>
+      </div>
+      <ion-card-title> {{prod.nome}} - R$ {{prod.preco}} </ion-card-title>
+      <ion-card-subtitle> {{prod.descricao}} </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

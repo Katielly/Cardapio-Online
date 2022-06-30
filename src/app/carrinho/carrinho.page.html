@@ -1,0 +1,28 @@
+<div class="div-titulo">
+  <h3> Pedidos </h3>
+</div>
+
+<ion-content>
+
+  <ion-card (click)="remove(prod)" *ngFor="let prod of prodCarrinho" class="card-container">
+    <div>
+      <img src={{prod.img}}>
+    </div>
+    <ion-card-header>
+      <ion-card-title> {{prod.nome}} </ion-card-title>
+      <div class="div-prod-detalhe">
+        <ion-card-subtitle> Qtd {{prod.qtd}} </ion-card-subtitle>
+        <ion-card-subtitle> R$ {{prod.preco}} </ion-card-subtitle>
+      </div>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>
+
+<div class="div-btn">
+  <button (click)="enviarPedido()">
+    <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+    Enviar Pedido
+  </button>
+</div>
+<!-- <app-cardapio></app-cardapio> -->
