@@ -11,20 +11,23 @@ import { Router } from '@angular/router';
 })
 export class CarrinhoPage implements OnInit {
 
-  prodCarrinho = this.carrinhoSrc.carrinho;
+  prodCarrinho: any[] = this.carrinhoSrc.carrinho;
+  total: number;
+  carrinho = this.carrinhoSrc.carrinho;
 
   constructor(
     private toastSrc: ToastService,
     private carrinhoSrc: CarrinhoService,
-    private evento: EventoService,
     private router: Router
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.refreshTotal();
+    this.refresh;
+    console.log('carrinho do carrinho:', this.carrinho);
   }
 
-  enviarPedido() {
+  sendRequest() {
     if (this.carrinhoSrc.carrinho.length !== 0 && this.prodCarrinho.length !== 0) {
       this.toastSrc.toast('Pedido enviado com Sucesso!!');
       this.carrinhoSrc.carrinho = [];
@@ -33,8 +36,8 @@ export class CarrinhoPage implements OnInit {
       return;
 
     } else if (this.carrinhoSrc.carrinho.length === 0 && this.prodCarrinho.length === 0) {
-       this.toastSrc.toast('Carrinho Vazio!');
-       return setTimeout(() => this.router.navigate(['tabs/cardapio']), 1000);
+      this.toastSrc.toast('Carrinho Vazio!');
+      return setTimeout(() => this.router.navigate(['tabs/cardapio']), 1000);
     }
   }
 
@@ -52,6 +55,37 @@ export class CarrinhoPage implements OnInit {
         if (this.carrinhoSrc.carrinho.length === 0) setTimeout(() => this.router.navigate(['tabs/cardapio']), 500);
       });
     }
+    console.log('carrinho do carrinho:', this.carrinho);
 
   }
+
+  add(produto) {
+    let produtoCarrinho = this.carrinhoSrc.carrinho.find(item => item.nome === produto.nome);
+    produtoCarrinho.qtd++;
+    console.log('produtoCarrinho: ', produtoCarrinho);
+    console.log('carrinho do carrinho:', this.carrinho);
+
+  }
+
+  async refresh() {
+    this.refreshTotal();
+  }
+
+  async loadData(){
+
+  }
+
+  refreshTotal() {
+    let totalItem = 0;
+    this.total = !this.total ? 0 : this.total;
+    console.log('prodCarrinho: ', this.prodCarrinho);
+    console.log('total: ', this.total);
+    this.prodCarrinho.forEach(item => {
+      totalItem = (item.preco * item.qtd);
+      console.log('totalItem: ', totalItem);
+      this.total += totalItem;
+    })
+    return this.total;
+  }
+
 }

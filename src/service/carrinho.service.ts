@@ -9,9 +9,7 @@ export class CarrinhoService {
 
   constructor() { }
 
-  public add(prod ){
-    console.log('parametro da funcao do carrinhoService: ', prod);
+  public add(prod){
     this.carrinho.push(prod);  
-    console.log(this.carrinho);
   }
 }

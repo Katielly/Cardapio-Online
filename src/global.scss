@@ -24,12 +24,3 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
-.card-produto-cat{
-    transition: background-color 2s;
-    transition-duration: 2s;
-}
-
-.card-produto-cat:hover{
-    background-color: #ffbfbf;
-}

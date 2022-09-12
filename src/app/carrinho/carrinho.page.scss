@@ -1,54 +1,65 @@
-.div-titulo{
+.div-titulo {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #850a0a;
 }
-h3{
+
+h3 {
     color: white;
     font-size: 28px;
     // font-family: 'Great Vibes', cursive;
     font-family: 'Open Sans', sans-serif;
-    
+
 }
 
-ion-card-subtitle{
+ion-card-subtitle {
     font-family: 'Open Sans', sans-serif;
 
 }
 
-ion-card-title{
+ion-card-title {
     font-size: 25px;
     font-family: 'Great Vibes', cursive;
 }
 
-.card-container{
+ion-card-title {
+    margin-right: 20px;
+}
+
+.card-container {
     display: flex;
     flex-direction: row;
 }
-img{
+
+img {
     width: 80px;
     height: 80px;
 }
-ion-card-header{
+
+ion-card-header {
     width: 100%;
 }
-ion-card-title{
-    margin-bottom: 5px;    
+
+ion-card-title {
+    margin-bottom: 5px;
 }
-.div-prod-detalhe{
+
+.div-prod-detalhe {
     display: flex;
 }
-.div-prod-detalhe ion-card-subtitle{
+
+.div-prod-detalhe ion-card-subtitle {
     margin-right: 10px;
 }
 
-.div-btn{
+.div-btn {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-button{
+
+button {
     background-color: #850a0a;
     width: 97%;
     border-radius: 6px;

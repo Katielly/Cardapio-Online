@@ -1,29 +1,23 @@
 <div iv class="container">
   <div class="div-log">
-    <img class="img-log"
-      src={{DadoLoja.loja.logo}}>
+    <img class="img-log" src={{dadoLoja.loja.logo}}>
   </div>
   <div class="div-titulo">
-    <h3>{{DadoLoja.loja.nome}}</h3>
+    <h3>{{dadoLoja.loja.nome}}</h3>
   </div>
 </div>
 
-<nav>
-  <ul>
-    <div (click)="selectCat(categoria)" *ngFor="let categoria of DadoLoja.categorias">
-      <li> {{categoria.nome}} </li>
-    </div>
-  </ul>
-</nav>
-
+<ion-segment scrollable>
+  <ion-segment-button [attr.data-ref]="categoria.nome" (click)="selectCat(categoria.nome)" *ngFor="let categoria of dadoLoja.categorias"> {{categoria.nome}}
+  </ion-segment-button>
+</ion-segment>
 
 <ion-content>
 
   <ion-card class="card-produto-cat" (click)="selecionarProd(prod)" *ngFor="let prod of produtosCategoria">
     <ion-card-header>
       <div>
-        <img
-          src={{prod.img}}>
+        <img src={{prod.img}}>
       </div>
       <ion-card-title> {{prod.nome}} - R$ {{prod.preco}} </ion-card-title>
       <ion-card-subtitle> {{prod.descricao}} </ion-card-subtitle>

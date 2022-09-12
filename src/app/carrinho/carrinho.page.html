@@ -1,28 +1,41 @@
-<div class="div-titulo">
-  <h3> Pedidos </h3>
-</div>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Pedidos </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
 
-  <ion-card (click)="remove(prod)" *ngFor="let prod of prodCarrinho" class="card-container">
+  <ion-card *ngFor="let prod of prodCarrinho" class="card-container">
     <div>
       <img src={{prod.img}}>
     </div>
     <ion-card-header>
-      <ion-card-title> {{prod.nome}} </ion-card-title>
-      <div class="div-prod-detalhe">
-        <ion-card-subtitle> Qtd {{prod.qtd}} </ion-card-subtitle>
-        <ion-card-subtitle> R$ {{prod.preco}} </ion-card-subtitle>
-      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-card-title> {{prod.nome}} </ion-card-title>
+          <ion-card-title> R$ {{prod.preco}} </ion-card-title>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-button (click)="remove(prod)">-</ion-button>
+          <ion-label>{{prod.qtd}}</ion-label>
+          <ion-button (click)="add(prod)">+</ion-button>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
   </ion-card>
-
 </ion-content>
+<ion-toolbar>
+  <ion-title>Total Pedido: R$ {{total}} </ion-title>
+</ion-toolbar>
+<ion-button class="div-btn" (click)="sendRequest()">
+  <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+  Enviar Pedido
+</ion-button>
 
-<div class="div-btn">
-  <button (click)="enviarPedido()">
-    <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
-    Enviar Pedido
-  </button>
-</div>
-<!-- <app-cardapio></app-cardapio> -->

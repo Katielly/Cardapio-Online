@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
 import { dados } from '../../components/dados';
 import { CarrinhoService } from '../../service/carrinho.service';
-import { ToastService } from '../../service/toast.service';
 import { EventoService } from 'src/service/evento.service';
+import { DOCUMENT } from '@angular/common';
+import { ClientHttpService } from 'src/service/client-http.service';
 
 @Component({
   selector: 'app-cardapio',
@@ -12,27 +12,29 @@ import { EventoService } from 'src/service/evento.service';
 })
 export class CardapioPage implements OnInit {
 
-
-  DadoLoja = dados;
-  produtosCategoria = this.DadoLoja.categorias[0].produtos;
+  // dadoLoja = this.httpSrc.getDados();
+  dadoLoja = dados;
+  // produtosCategoria = this.dadoLoja[0].categorias[0].produtos;
+  produtosCategoria = dados.categorias[0].produtos;
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private carrinhoSrc: CarrinhoService,
-    private toastSrc: ToastService,
-    private evento: EventoService
-  ) {
+    private evento: EventoService,
+    private httpSrc: ClientHttpService
+    ) {
     this.evento.addCallback('exibirCardapio', () => this.ngOnInit());
   }
-
-  ngOnInit(): void {}
-
+  
+  ngOnInit() {
+  }
+  
   selectCat(categoriaSelect) {
-    this.produtosCategoria = categoriaSelect.produtos;
+    this.dadoLoja.categorias.find(cat => this.produtosCategoria = cat.nome === categoriaSelect ? cat.produtos : null);
+    this.animateScrollCat(categoriaSelect);
   }
 
   checarCarrinho(produto) {
-    console.log(produto);
-
     let temCarrinho = this.carrinhoSrc.carrinho.find(item => item.nome === produto.nome);
     if (temCarrinho) {
       temCarrinho.qtd++;
@@ -57,7 +59,21 @@ export class CardapioPage implements OnInit {
 
       this.carrinhoSrc.add(produtoVaiCarrinho);
     }
-
-    // this.toastSrc.toast(produto.nome + ' selecionado!');
   }
+
+  animateScrollCat(segment: string) {
+    if (!segment) { return; }
+    setTimeout(() => {
+      try {
+        this.document.querySelector(`ion-segment-button[data-ref="${segment}"]`).scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center'
+        });
+      } catch (error) {
+        //nothing
+      }
+    }, 125);
+  }
+
 }
