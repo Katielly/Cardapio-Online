@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarrinhoService } from '../../service/carrinho.service';
 import { ToastService } from 'src/service/toast.service';
-import { EventoService } from 'src/service/evento.service';
 import { Router } from '@angular/router';
 
 @Component({

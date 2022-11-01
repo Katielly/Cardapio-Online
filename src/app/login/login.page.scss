@@ -1,0 +1,48 @@
+.version {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-size: 0.9rem;
+    color: var(--ion-color-medium);
+    color: #000000;
+}
+
+.container {
+    text-align: center;
+    padding: 10px 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20%;
+    border-radius: 5px;
+    border-style: none;
+    border-width: 1px;
+    background-color: #f81919cd;
+    img {
+        margin-bottom: 10px;
+    }
+}
+
+.action {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.mask {
+    background: url(../../assets/background.png);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        text-align: center;
+        padding: 0px 25px;
+        padding-top: 5px;
+        img {
+            margin-bottom: 20px;
+            max-width: 100px;
+        }
+    }
+}

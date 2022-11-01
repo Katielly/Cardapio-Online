@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="mask">
+    <div class="container">
+      <img src="../../assets/icon-pequeno.png"/>
+      <ion-list lines="none">
+        <ion-item lines="none">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label position="stacked">Mesa</ion-label>
+          <ion-input type="number" placeholder="Número da Mesa" [(ngModel)]="table"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-label position="stacked">Código</ion-label>
+          <ion-input spellcheck="true" placeholder="Código de verificação da mesa"
+            [type]="text" [(ngModel)]="verificationCode">
+          </ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="action">
+        <ion-button color="primary" expand="block" class="large" (click)="login()">
+          Entrar
+        </ion-button>
+      </div>
+      <div class="version">
+        <p>Versão: {{version}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
