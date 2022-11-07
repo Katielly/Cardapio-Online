@@ -12,13 +12,13 @@
     padding: 10px 20px;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 5px;
     border-style: none;
     border-width: 1px;
     background-color: #f81919cd;
     img {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 }
 
@@ -45,4 +45,8 @@
             max-width: 100px;
         }
     }
+}
+
+.border{
+    border-radius: 10px;
 }

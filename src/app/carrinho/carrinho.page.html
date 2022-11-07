@@ -11,30 +11,30 @@
   </ion-refresher>
 
   <ion-card *ngFor="let prod of carrinho" class="card-container">
-    <div>
-      <img src={{prod.img}}>
+    <div class="imagem-prod">
+      <img class="imagem-produto" src={{prod.img}}>
     </div>
     <ion-card-header>
       <ion-grid>
         <ion-row>
           <ion-card-title> {{prod.nome}} </ion-card-title>
         </ion-row>
-      </ion-grid>
-      <ion-grid>
+        <ion-row>
+          <ion-card-title> R$ {{prod.preco}} </ion-card-title>
+        </ion-row>
         <ion-row>
           <ion-button (click)="remove(prod)">-</ion-button>
           <ion-label class="qtd-item">{{prod.qtd}}</ion-label>
           <ion-button class="color-add" (click)="add(prod)">+</ion-button>
-          <ion-card-title > R$ {{prod.preco}} </ion-card-title>
         </ion-row>
       </ion-grid>
     </ion-card-header>
   </ion-card>
 </ion-content>
 <ion-toolbar>
-  <ion-title>Total Pedido: R$ {{total}} </ion-title>
-<ion-button (click)="sendRequest()" expand="block" color="primary">
-  <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
-  Enviar Pedido
-</ion-button>
+  <ion-title class="total">Total: R$ {{total}} </ion-title>
+  <ion-button (click)="sendRequest()" expand="block" color="primary">
+    <ion-icon name="checkmark-done-outline" slot="start"></ion-icon>
+    Enviar Pedido
+  </ion-button>
 </ion-toolbar>
