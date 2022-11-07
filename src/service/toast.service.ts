@@ -24,6 +24,7 @@ export class ToastService {
         {
           text: 'Não', role: 'Cancel', handler: () => {
             console.log('Confirm:Say:No');
+            return;
           }
         },
         { text: 'Sim', handler: () => { callback(); } }
